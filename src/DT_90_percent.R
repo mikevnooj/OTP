@@ -128,7 +128,7 @@ Ninety_Percent_Club <-
     )
   ][order(Operator)]
   
-fwrite(Ninety_Percent_Club,paste0(format(Sys.Date(), "%Y%m"),"_Ninety_Percent_Club.csv"))
+fwrite(Ninety_Percent_Club,paste0(format(last_month, "%Y%m"),"_Ninety_Percent_Club.csv"))
 
 
 # route and system otp --------------------------------------------------------------
@@ -239,4 +239,4 @@ System_OTP <- Patterns[
 
 OTP_Route_With_Totals <- rbind(OTP_Route_Report,System_OTP)
 
-fwrite(OTP_Route_With_Totals, paste0(format(Sys.Date(), "%Y%m"),"_Route_OTP.csv"))
+fwrite(OTP_Route_With_Totals, paste0(format(last_month, "%Y%m"),"_Route_OTP.csv"))
