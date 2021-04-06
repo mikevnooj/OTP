@@ -7,7 +7,7 @@ con_dw <- DBI::dbConnect(odbc::odbc(), Driver = "SQL Server", Server = "AVAILDWH
                          Database = "DW_IndyGo", Port = 1433)
 
 #set dates
-last_month <- as.IDate(format(Sys.Date() - 30, '%Y-%m-01'))
+last_month <- as.IDate(format(Sys.Date() - 28, '%Y-%m-01'))
 
 this_month <- as.IDate(format(Sys.Date(), '%Y-%m-01'))
 
@@ -63,6 +63,7 @@ all(last_month_calendar == sort(unique(left_join(FactTimePointAdherenceRaw,
                                                  DimDate,
                                                  by = "DateKey")$CalendarDate)))
 
+FactTimePointAdherenceRaw[DimDate,on="DateKey"][,.N,CalendarDate]
 
 # operator otp ------------------------------------------------------------
 
