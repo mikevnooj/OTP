@@ -7,9 +7,9 @@ con_dw <- DBI::dbConnect(odbc::odbc(), Driver = "SQL Server", Server = "AVAILDWH
                          Database = "DW_IndyGo", Port = 1433)
 
 #set dates
-last_month <- as.IDate(format(Sys.Date() - 28, '%Y-%m-01'))
+last_month <- as.IDate(format(Sys.Date() - 28 -31, '%Y-%m-01'))
 
-this_month <- as.IDate(format(Sys.Date(), '%Y-%m-01'))
+this_month <- as.IDate(format(Sys.Date()-31, '%Y-%m-01'))
 
 #this one's for public affairs
 month_before_last <- as.Date(format(Sys.Date() - 60, '%Y-%m-01'))
